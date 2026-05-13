@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:#f4f4f4;
+    }
+
+    .container{
+      width:350px;
+      background:white;
+      padding:30px;
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h2{
+      text-align:center;
+      margin-bottom:20px;
+      color:#333;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      border:1px solid #ccc;
+      border-radius:5px;
+      outline:none;
+    }
+
+    button{
+      width:100%;
+      padding:12px;
+      background:#2563eb;
+      color:white;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+    .message{
+      text-align:center;
+      margin-top:15px;
+      font-weight:bold;
+    }
+
+    table{
+      width:100%;
+      margin-top:20px;
+      border-collapse:collapse;
+    }
+
+    table, th, td{
+      border:1px solid #ccc;
+    }
+
+    th, td{
+      padding:8px;
+      text-align:center;
+    }
+
+    th{
+      background:#2563eb;
+      color:white;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h2>User Registration</h2>
+
+  <form id="registerForm">
+
+    <input type="text" id="name" placeholder="Enter Name" required>
+
+    <input type="email" id="email" placeholder="Enter Email" required>
+
+    <input type="password" id="password" placeholder="Enter Password" required>
+
+    <button type="submit">Register</button>
+
+  </form>
+
+  <div class="message" id="message"></div>
+
+  <table id="userTable">
+
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+
+    <tbody></tbody>
+
+  </table>
+
+</div>
+
+<script>
+
+  const form = document.getElementById("registerForm");
+  const message = document.getElementById("message");
+  const tbody = document.querySelector("#userTable tbody");
+
+  // Load existing users from Local Storage
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  displayUsers();
+
+  form.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    // AJAX Simulation using setTimeout
+    setTimeout(() => {
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const user = {
+        name,
+        email,
+        password
+      };
+
+      users.push(user);
+
+      // Save to Local Storage
+      localStorage.setItem("users", JSON.stringify(users));
+
+      message.innerHTML = "Registration Successful!";
+      message.style.color = "green";
+
+      displayUsers();
+
+      form.reset();
+
+    }, 1000);
+
+  });
+
+  // Display Users
+  function displayUsers(){
+
+    tbody.innerHTML = "";
+
+    users.forEach(user => {
+
+      let row = `
+        <tr>
+          <td>${user.name}</td>
+          <td>${user.email}</td>
+        </tr>
+      `;
+
+      tbody.innerHTML += row;
+
+    });
+
+  }
+
+</script>
+
+</body>
+</html>
