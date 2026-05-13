@@ -1,0 +1,27 @@
+.container{
+  width:350px;
+  margin:80px auto;
+  padding:30px;
+  box-shadow:0 0 10px gray;
+  border-radius:10px;
+  text-align:center;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+}
+
+button{
+  width:100%;
+  padding:10px;
+  background:blue;
+  color:white;
+  border:none;
+  cursor:pointer;
+}
+
+h3{
+  color:green;
+}
