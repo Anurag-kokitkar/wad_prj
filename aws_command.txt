@@ -1,0 +1,17 @@
+mkdir aws-app
+cd aws-app
+npm init -y
+npm install express
+"scripts": {
+  "start": "node server.js"
+} - add this in package.json
+
+download - AWS CLI Official Website
+aws --version
+npm install -g aws-elastic-beanstalk-cli
+eb --version
+aws configure
+eb init
+eb create aws-env
+eb deploy   
+eb open

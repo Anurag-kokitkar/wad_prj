@@ -1,0 +1,7 @@
+npm install -g @angular/cli
+ng new user-registration-app
+Would you like to add Angular routing? → Yes
+then select - CSS
+cd user-registration-app
+ng generate component register or ng g c register
+ng serve

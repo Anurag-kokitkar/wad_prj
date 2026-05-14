@@ -1,0 +1,17 @@
+mkdir docker-project
+cd docker-project
+Create a file named Dockerfile and add this  ={
+
+FROM nginx:latest
+
+COPY . /usr/share/nginx/html
+
+EXPOSE 80
+}
+docker build -t docker-practical .
+docker run -d -p 8080:80 docker-practical
+http://localhost:8080
+docker images
+docker stop your_container_id
+docker rm container_id
+docker rmi image_name

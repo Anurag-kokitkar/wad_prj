@@ -1,0 +1,29 @@
+mkdir crud-api
+cd crud-api
+npm init -y
+npm install express mongoose nodemon
+Create:
+server.js
+Install post man = sudo snap install postman 
+run postman = postman or snap run postman
+check in the post man http://localhost:3000/students
+Body → JSON POST 
+{
+  "name": "Rahul",
+  "age": 20,
+  "course": "Computer"
+}
+READ DATA GET= http://localhost:3000/students
+Body
+{
+  "name": "Rahul"
+}
+UPDATE Data
+PUT
+http://localhost:3000/students/student_id
+{
+  "name": "Rahul Sharma"
+}
+DELETE Data
+DELETE
+http://localhost:3000/students/student_id

@@ -1,0 +1,12 @@
+git config --global user.name "Your Name"
+git config --global user.email "your@gmail.com"
+mkdir myproject
+cd myproject
+git init
+touch index.html # or create file manuallly
+git status
+git add .
+git commit -m "First Commit"
+git remote add origin https://github.com/Anurag-kokitkar/repository-name.git
+git branch -M main
+git push -u origin main
